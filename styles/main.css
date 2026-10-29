@@ -1,0 +1,164 @@
+/* ZFT NPC Enhancer v13.0.0-dev.7: compact, auto-fitting V13 workspace.
+   Scoped to this application; no Foundry-global or other module overrides. */
+.zft-npc-enhancer-dialog {
+  --zft-ne-window-start: #171421;
+  --zft-ne-window-end: #23192c;
+  --zft-ne-panel: #26202f;
+  --zft-ne-field: #191720;
+  --zft-ne-heading: #f1e8f7;
+  --zft-ne-text: #e9e2ee;
+  --zft-ne-muted: #b5aabd;
+  --zft-ne-border: #55435d;
+  --zft-ne-accent: #28e887;
+  --zft-ne-action: #19563d;
+  --zft-ne-danger: #c84b4b;
+  --zft-ne-focus: #a0f6c5;
+  color: var(--zft-ne-text);
+  max-width: calc(100vw - 24px);
+  max-height: calc(100vh - 16px);
+}
+.zft-npc-enhancer-dialog .window-header {
+  background: #15121e;
+  color: var(--zft-ne-heading);
+  border-bottom: 1px solid var(--zft-ne-border);
+}
+.zft-npc-enhancer-dialog .window-title { color: var(--zft-ne-heading); }
+.zft-npc-enhancer-dialog .window-content {
+  background: linear-gradient(145deg, var(--zft-ne-window-start), var(--zft-ne-window-end));
+  color: var(--zft-ne-text);
+  padding: 0;
+  height: auto;
+  overflow: visible;
+}
+/* Only when content cannot physically fit on screen. */
+.zft-npc-enhancer-dialog.zft-ne-viewport-constrained .window-content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+.zft-npc-enhancer-dialog .dialog-buttons:empty { display: none; }
+.zft-npc-enhancer-dialog .zft-ne-shell { padding: 8px 10px 10px; min-width: 0; }
+.zft-npc-enhancer-dialog .zft-npc-enhancer-form { margin: 0; display: grid; gap: 7px; }
+.zft-npc-enhancer-dialog .zft-ne-section {
+  min-width: 0; padding: 8px 9px; background: var(--zft-ne-panel);
+  border: 1px solid var(--zft-ne-border); border-radius: 7px;
+}
+.zft-npc-enhancer-dialog .zft-ne-section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 8px; margin-bottom: 5px;
+}
+.zft-npc-enhancer-dialog .zft-ne-section-head strong {
+  color: var(--zft-ne-heading); font-size: 12px;
+}
+.zft-npc-enhancer-dialog .zft-ne-count {
+  color: var(--zft-ne-accent); font-size: 11px; font-weight: 700; white-space: nowrap;
+}
+.zft-npc-enhancer-dialog .zft-ne-token-list {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 4px; min-height: 21px; overflow: visible;
+}
+.zft-npc-enhancer-dialog .zft-ne-token {
+  display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 4px;
+  min-width: 0; max-width: 100%; overflow-wrap: anywhere;
+  border: 1px solid #534260; border-radius: 4px; background: #201b29;
+  color: #dfd7e7; padding: 3px 6px; font-size: 11px; line-height: 1.3;
+}
+.zft-npc-enhancer-dialog .zft-ne-token i { color: var(--zft-ne-accent); margin-right: 1px; }
+.zft-npc-enhancer-dialog .zft-ne-token small { font-size: 10px; font-weight: 700; }
+.zft-npc-enhancer-dialog .zft-ne-token.enhanced { border-color: #278b56; background: #193326; }
+.zft-npc-enhancer-dialog .zft-ne-token.enhanced small { color: #a5f9c3; }
+.zft-npc-enhancer-dialog .zft-ne-token.unsupported { border-color: #945459; background: #39242d; }
+.zft-npc-enhancer-dialog .zft-ne-token.unsupported small { color: #ffb6b6; }
+.zft-npc-enhancer-dialog .zft-ne-token.plain small { color: #d4c6da; }
+.zft-npc-enhancer-dialog .zft-ne-empty { margin: 0; font-size: 11px; color: var(--zft-ne-muted); }
+.zft-npc-enhancer-dialog .zft-ne-selection-help { margin: 5px 0 0; color: #c8e5d5; font-size: 10px; line-height: 1.3; }
+.zft-npc-enhancer-dialog .zft-ne-selection-help:empty,
+.zft-npc-enhancer-dialog .zft-ne-result:empty { display: none; }
+.zft-npc-enhancer-dialog .zft-ne-preset-row {
+  display: grid; grid-template-columns: auto 118px minmax(0, 1fr);
+  align-items: center; column-gap: 8px; row-gap: 4px;
+  margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid #43364b;
+}
+.zft-npc-enhancer-dialog .zft-ne-preset-label { color: var(--zft-ne-heading); font-weight: 700; font-size: 12px; }
+.zft-npc-enhancer-dialog .zft-ne-preset-row select {
+  min-width: 0; width: 100%; height: 31px; min-height: 31px;
+  box-sizing: border-box; background: var(--zft-ne-field);
+  color: #f4edf8; border: 1px solid #6a5878; border-radius: 5px;
+  font-size: 12px; margin: 0; padding: 4px 7px; cursor: pointer;
+}
+.zft-npc-enhancer-dialog .zft-ne-preset-row select option { background: #201b29; color: #f4edf8; }
+.zft-npc-enhancer-dialog .zft-ne-preset-help { color: var(--zft-ne-muted); font-size: 10px; line-height: 1.3; }
+/* Compact 3 + 2 grid fills both rows instead of stretching five fields across one long strip. */
+.zft-npc-enhancer-dialog .zft-ne-editor { container-type: inline-size; }
+.zft-npc-enhancer-dialog .zft-ne-stat-grid {
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 7px 8px;
+}
+.zft-npc-enhancer-dialog .zft-ne-stat-grid .zft-ne-field { grid-column: span 2; }
+.zft-npc-enhancer-dialog .zft-ne-stat-grid .zft-ne-field:nth-child(n+4) { grid-column: span 3; }
+.zft-npc-enhancer-dialog .zft-ne-field { display: flex; flex-direction: column; min-width: 0; gap: 4px; }
+.zft-npc-enhancer-dialog .zft-ne-field-label { color: var(--zft-ne-text); font-size: 11px; font-weight: 700; }
+.zft-npc-enhancer-dialog .zft-ne-input-wrap { position: relative; display: block; min-width: 0; }
+.zft-npc-enhancer-dialog .zft-ne-input-wrap input[type="number"] {
+  box-sizing: border-box; min-width: 0; width: 100%; height: 31px; min-height: 31px;
+  border: 1px solid #6a5878; border-radius: 5px; padding: 5px 19px 5px 7px;
+  background: var(--zft-ne-field); color: #f4edf8; font-size: 12px; margin: 0;
+  appearance: textfield; -moz-appearance: textfield;
+}
+.zft-npc-enhancer-dialog .zft-ne-input-wrap input[type="number"]::-webkit-inner-spin-button,
+.zft-npc-enhancer-dialog .zft-ne-input-wrap input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.zft-npc-enhancer-dialog .zft-ne-unit {
+  position: absolute; right: 7px; top: 50%; transform: translateY(-50%);
+  color: var(--zft-ne-accent); font-weight: 700; font-size: 11px; pointer-events: none;
+}
+.zft-npc-enhancer-dialog .zft-ne-options {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  column-gap: 10px; row-gap: 4px; min-width: 0;
+}
+.zft-npc-enhancer-dialog .zft-ne-stealth {
+  display: inline-flex; gap: 5px; align-items: center; white-space: nowrap;
+  cursor: pointer; font-size: 11px; font-weight: 700; color: #b8efd0;
+}
+.zft-npc-enhancer-dialog .zft-ne-stealth input { width: 14px; height: 14px; min-width: 14px; margin: 0; accent-color: var(--zft-ne-accent); cursor: pointer; }
+.zft-npc-enhancer-dialog .zft-ne-stealth i { color: var(--zft-ne-accent); }
+.zft-npc-enhancer-dialog .zft-ne-footnote {
+  margin: 0; color: var(--zft-ne-muted); font-size: 10px; line-height: 1.4;
+}
+.zft-npc-enhancer-dialog .zft-ne-footnote i { color: var(--zft-ne-accent); margin-right: 4px; }
+.zft-npc-enhancer-dialog .zft-ne-result { margin: 0; color: #b3ebcc; font-size: 11px; line-height: 1.3; }
+.zft-npc-enhancer-dialog .zft-ne-actions {
+  display: flex; align-items: stretch; flex-wrap: wrap; gap: 7px; min-width: 0;
+  padding-top: 9px; border-top: 1px solid var(--zft-ne-border);
+}
+.zft-npc-enhancer-dialog .zft-ne-actions button {
+  width: auto; min-width: 0; flex: 1 1 100px; height: 32px; min-height: 32px;
+  margin: 0; border-radius: 5px; padding: 5px 9px;
+  font-weight: 700; font-size: 12px; cursor: pointer;
+  background: #2e2539; border: 1px solid #6a5878; color: var(--zft-ne-text);
+}
+.zft-npc-enhancer-dialog .zft-ne-actions button[hidden] { display: none !important; }
+.zft-npc-enhancer-dialog .zft-ne-actions button.zft-ne-primary { background: var(--zft-ne-action); border-color: var(--zft-ne-accent); color: #fff; }
+.zft-npc-enhancer-dialog .zft-ne-actions button.zft-ne-danger { background: #5b2731; border-color: var(--zft-ne-danger); color: #fff0f0; }
+.zft-npc-enhancer-dialog .zft-ne-actions button:hover:not(:disabled) { filter: brightness(1.15); }
+.zft-npc-enhancer-dialog .zft-ne-actions button i { margin-right: 4px; }
+.zft-npc-enhancer-dialog :is(button, select, input):focus-visible { outline: 2px solid var(--zft-ne-focus); outline-offset: 2px; }
+.zft-npc-enhancer-dialog :is(button, select, input):disabled { opacity: 0.55; cursor: not-allowed; }
+/* Standalone V13 neutral control is registered for compatibility, but visually hidden. */
+#scene-controls :is([data-tool="zft-npc-enhancer-select"], [data-action="zft-npc-enhancer-select"]) { display: none !important; }
+/* Resize the window without forcing horizontal overflow or hiding action controls. */
+@container (max-width: 365px) {
+  .zft-npc-enhancer-dialog .zft-ne-stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .zft-npc-enhancer-dialog .zft-ne-stat-grid .zft-ne-field,
+  .zft-npc-enhancer-dialog .zft-ne-stat-grid .zft-ne-field:nth-child(n+4) { grid-column: span 1; }
+  .zft-npc-enhancer-dialog .zft-ne-stat-grid .zft-ne-field:last-child { grid-column: 1 / -1; }
+}
+@container (max-width: 335px) {
+  .zft-npc-enhancer-dialog .zft-ne-preset-row { grid-template-columns: auto minmax(0, 1fr); }
+  .zft-npc-enhancer-dialog .zft-ne-preset-help { grid-column: 1 / -1; }
+}
+@media (max-width: 480px) {
+  .zft-npc-enhancer-dialog .zft-ne-shell { padding: 7px; }
+  .zft-npc-enhancer-dialog .zft-ne-section { padding: 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .zft-npc-enhancer-dialog *, .zft-npc-enhancer-dialog *::before, .zft-npc-enhancer-dialog *::after { transition: none; animation: none; }
+}
